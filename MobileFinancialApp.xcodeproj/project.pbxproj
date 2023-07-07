@@ -21,6 +21,8 @@
 		7AAAA05C2A58483200F75E6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */; };
 		7AAAA0622A585FC800F75E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0612A585FC800F75E6D /* HomeViewController.swift */; };
 		7AAAA0642A58621500F75E6D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */; };
+		7AAAA0662A586EE800F75E6D /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0652A586EE800F75E6D /* ExpenseViewModel.swift */; };
+		7AAAA0692A586F1600F75E6D /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0682A586F1600F75E6D /* ExpenseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		7AAAA0612A585FC800F75E6D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		7AAAA0652A586EE800F75E6D /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		7AAAA0682A586F1600F75E6D /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				7AAAA04D2A5823D500F75E6D /* Service */,
 				7AAAA0502A58247D00F75E6D /* Model */,
 				7AAAA04F2A58244700F75E6D /* View */,
+				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
 				7AAAA04E2A5823DC00F75E6D /* ViewModel */,
 				7A0D10872A57EF0A000D3BA4 /* AppDelegate.swift */,
 				7A0D10892A57EF0A000D3BA4 /* SceneDelegate.swift */,
@@ -98,6 +103,7 @@
 			children = (
 				7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */,
 				7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */,
+				7AAAA0652A586EE800F75E6D /* ExpenseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -105,7 +111,7 @@
 		7AAAA04F2A58244700F75E6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
+				7AAAA0672A586EF400F75E6D /* ExpensePage */,
 				7AAAA0562A58477600F75E6D /* HomePage */,
 				7AAAA0512A58249900F75E6D /* LoginPage */,
 			);
@@ -135,6 +141,14 @@
 				7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */,
 			);
 			path = HomePage;
+			sourceTree = "<group>";
+		};
+		7AAAA0672A586EF400F75E6D /* ExpensePage */ = {
+			isa = PBXGroup;
+			children = (
+				7AAAA0682A586F1600F75E6D /* ExpenseViewController.swift */,
+			);
+			path = ExpensePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,11 +231,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AAAA0552A58300800F75E6D /* LoginModel.swift in Sources */,
+				7AAAA0662A586EE800F75E6D /* ExpenseViewModel.swift in Sources */,
 				7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */,
 				7AAAA0622A585FC800F75E6D /* HomeViewController.swift in Sources */,
 				7AAAA05C2A58483200F75E6D /* HomeViewModel.swift in Sources */,
 				7A0D108C2A57EF0A000D3BA4 /* LoginViewController.swift in Sources */,
 				7A0D10882A57EF0A000D3BA4 /* AppDelegate.swift in Sources */,
+				7AAAA0692A586F1600F75E6D /* ExpenseViewController.swift in Sources */,
 				7AAAA0642A58621500F75E6D /* HomeTableViewCell.swift in Sources */,
 				7A0D108A2A57EF0A000D3BA4 /* SceneDelegate.swift in Sources */,
 			);

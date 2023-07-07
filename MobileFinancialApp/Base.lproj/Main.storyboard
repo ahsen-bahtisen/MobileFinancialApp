@@ -165,7 +165,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addExpense:" destination="tcn-fL-XkP" eventType="touchUpInside" id="mXt-oE-AAM"/>
-                                    <segue destination="d8O-zP-a5X" kind="show" id="ZC0-rl-fw3"/>
+                                    <segue destination="d8O-zP-a5X" kind="presentation" id="73m-nQ-dhF"/>
                                 </connections>
                             </button>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gO-Po-JtG">
@@ -213,7 +213,18 @@
                             <constraint firstItem="7gO-Po-JtG" firstAttribute="centerX" secondItem="cd3-qo-qes" secondAttribute="centerX" id="tlg-xY-t3d"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wra-71-OWL"/>
+                    <navigationItem key="navigationItem" id="wra-71-OWL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="cBu-Az-cBF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vnA-mV-iEY">
+                                <rect key="frame" x="288" y="5" width="86" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="dollarsign.circle.fill" catalog="system">
+                                    <color key="baseForegroundColor" red="0.44705882349999998" green="0.41960784309999999" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="expensesTableView" destination="cd3-qo-qes" id="NPk-Mu-ewo"/>
                         <outlet property="totalLabel" destination="QF2-gk-kIO" id="nNx-8d-CZE"/>
@@ -223,21 +234,64 @@
             </objects>
             <point key="canvasLocation" x="1773.8461538461538" y="-2.1327014218009479"/>
         </scene>
-        <!--View Controller-->
+        <!--Expense View Controller-->
         <scene sceneID="s68-u4-xsS">
             <objects>
-                <viewController id="d8O-zP-a5X" sceneMemberID="viewController">
+                <viewController id="d8O-zP-a5X" customClass="ExpenseViewController" customModule="MobileFinancialApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgm-Lj-RmB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBP-EW-uzS">
+                                <rect key="frame" x="116" y="203" width="158" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="₺0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-YJ-G1O">
+                                <rect key="frame" x="93" y="293" width="204" height="37.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remark" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfx-wm-P4K">
+                                <rect key="frame" x="72" y="397" width="247" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vRB-Ej-SXq">
+                                <rect key="frame" x="72" y="494" width="247" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Income"/>
+                                    <segment title="Expenses"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GaQ-8Q-hnO">
+                                <rect key="frame" x="120" y="597" width="154" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="d8O-zP-a5X" eventType="touchUpInside" id="t15-Sp-E2G"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4Sy-uv-2cG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="vvx-ai-rXZ"/>
+                    <connections>
+                        <outlet property="amountText" destination="NVR-YJ-G1O" id="nJg-lc-8az"/>
+                        <outlet property="remarkText" destination="Zfx-wm-P4K" id="J8V-OY-dPa"/>
+                        <outlet property="selectionSC" destination="vRB-Ej-SXq" id="tqq-u9-mlg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Akr-gR-DBo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2563" y="-2"/>
+            <point key="canvasLocation" x="2554" y="-232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eAa-Se-cEy">
@@ -260,6 +314,7 @@
     </scenes>
     <resources>
         <image name="add" width="46" height="46"/>
+        <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="login" width="80" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
