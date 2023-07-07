@@ -11,15 +11,18 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var expensesTableView: UITableView!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        cardView.layer.cornerRadius = 12
+ 
     }
     
 
     @IBAction func addExpense(_ sender: Any) {
+        
     }
     
 }
