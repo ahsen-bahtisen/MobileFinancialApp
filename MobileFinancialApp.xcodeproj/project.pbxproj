@@ -18,6 +18,9 @@
 		7AAAA04C2A58221400F75E6D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA04B2A58221400F75E6D /* FirebaseDatabase */; };
 		7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */; };
 		7AAAA0552A58300800F75E6D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0542A58300800F75E6D /* LoginModel.swift */; };
+		7AAAA05C2A58483200F75E6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */; };
+		7AAAA0622A585FC800F75E6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0612A585FC800F75E6D /* HomeViewController.swift */; };
+		7AAAA0642A58621500F75E6D /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		7AAAA0462A5821D900F75E6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7AAAA0542A58300800F75E6D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		7AAAA0612A585FC800F75E6D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +72,10 @@
 		7A0D10862A57EF0A000D3BA4 /* MobileFinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				7AAAA04D2A5823D500F75E6D /* Service */,
 				7AAAA0502A58247D00F75E6D /* Model */,
 				7AAAA04F2A58244700F75E6D /* View */,
 				7AAAA04E2A5823DC00F75E6D /* ViewModel */,
-				7AAAA04D2A5823D500F75E6D /* Service */,
 				7A0D10872A57EF0A000D3BA4 /* AppDelegate.swift */,
 				7A0D10892A57EF0A000D3BA4 /* SceneDelegate.swift */,
 				7A0D10902A57EF0C000D3BA4 /* Assets.xcassets */,
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */,
+				7AAAA05B2A58483200F75E6D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -98,6 +105,8 @@
 		7AAAA04F2A58244700F75E6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
+				7AAAA0562A58477600F75E6D /* HomePage */,
 				7AAAA0512A58249900F75E6D /* LoginPage */,
 			);
 			path = View;
@@ -115,9 +124,17 @@
 			isa = PBXGroup;
 			children = (
 				7A0D108B2A57EF0A000D3BA4 /* LoginViewController.swift */,
-				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		7AAAA0562A58477600F75E6D /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				7AAAA0612A585FC800F75E6D /* HomeViewController.swift */,
+				7AAAA0632A58621500F75E6D /* HomeTableViewCell.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +218,11 @@
 			files = (
 				7AAAA0552A58300800F75E6D /* LoginModel.swift in Sources */,
 				7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */,
+				7AAAA0622A585FC800F75E6D /* HomeViewController.swift in Sources */,
+				7AAAA05C2A58483200F75E6D /* HomeViewModel.swift in Sources */,
 				7A0D108C2A57EF0A000D3BA4 /* LoginViewController.swift in Sources */,
 				7A0D10882A57EF0A000D3BA4 /* AppDelegate.swift in Sources */,
+				7AAAA0642A58621500F75E6D /* HomeTableViewCell.swift in Sources */,
 				7A0D108A2A57EF0A000D3BA4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
