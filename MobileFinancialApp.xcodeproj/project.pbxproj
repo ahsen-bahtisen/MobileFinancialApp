@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		7A0D10882A57EF0A000D3BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D10872A57EF0A000D3BA4 /* AppDelegate.swift */; };
 		7A0D108A2A57EF0A000D3BA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D10892A57EF0A000D3BA4 /* SceneDelegate.swift */; };
-		7A0D108C2A57EF0A000D3BA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D108B2A57EF0A000D3BA4 /* ViewController.swift */; };
+		7A0D108C2A57EF0A000D3BA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D108B2A57EF0A000D3BA4 /* LoginViewController.swift */; };
 		7A0D108F2A57EF0A000D3BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */; };
 		7A0D10912A57EF0C000D3BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D10902A57EF0C000D3BA4 /* Assets.xcassets */; };
 		7A0D10942A57EF0C000D3BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D10922A57EF0C000D3BA4 /* LaunchScreen.storyboard */; };
-		7AAAA0472A5821DA00F75E6D /* GoogleService-Info (3).plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA0462A5821D900F75E6D /* GoogleService-Info (3).plist */; };
+		7AAAA0472A5821DA00F75E6D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA0462A5821D900F75E6D /* GoogleService-Info.plist */; };
 		7AAAA04A2A58221400F75E6D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA0492A58221400F75E6D /* FirebaseAuth */; };
 		7AAAA04C2A58221400F75E6D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA04B2A58221400F75E6D /* FirebaseDatabase */; };
+		7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */; };
+		7AAAA0552A58300800F75E6D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0542A58300800F75E6D /* LoginModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7A0D10842A57EF0A000D3BA4 /* MobileFinancialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileFinancialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0D10872A57EF0A000D3BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0D10892A57EF0A000D3BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A0D108B2A57EF0A000D3BA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A0D108B2A57EF0A000D3BA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7A0D108E2A57EF0A000D3BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A0D10902A57EF0C000D3BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A0D10932A57EF0C000D3BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A0D10952A57EF0C000D3BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AAAA0462A5821D900F75E6D /* GoogleService-Info (3).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (3).plist"; sourceTree = "<group>"; };
+		7AAAA0462A5821D900F75E6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7AAAA0542A58300800F75E6D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,16 +66,58 @@
 		7A0D10862A57EF0A000D3BA4 /* MobileFinancialApp */ = {
 			isa = PBXGroup;
 			children = (
+				7AAAA0502A58247D00F75E6D /* Model */,
+				7AAAA04F2A58244700F75E6D /* View */,
+				7AAAA04E2A5823DC00F75E6D /* ViewModel */,
+				7AAAA04D2A5823D500F75E6D /* Service */,
 				7A0D10872A57EF0A000D3BA4 /* AppDelegate.swift */,
 				7A0D10892A57EF0A000D3BA4 /* SceneDelegate.swift */,
-				7A0D108B2A57EF0A000D3BA4 /* ViewController.swift */,
-				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
 				7A0D10902A57EF0C000D3BA4 /* Assets.xcassets */,
 				7A0D10922A57EF0C000D3BA4 /* LaunchScreen.storyboard */,
 				7A0D10952A57EF0C000D3BA4 /* Info.plist */,
-				7AAAA0462A5821D900F75E6D /* GoogleService-Info (3).plist */,
+				7AAAA0462A5821D900F75E6D /* GoogleService-Info.plist */,
 			);
 			path = MobileFinancialApp;
+			sourceTree = "<group>";
+		};
+		7AAAA04D2A5823D500F75E6D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7AAAA04E2A5823DC00F75E6D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7AAAA0522A582FDD00F75E6D /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7AAAA04F2A58244700F75E6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7AAAA0512A58249900F75E6D /* LoginPage */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7AAAA0502A58247D00F75E6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7AAAA0542A58300800F75E6D /* LoginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AAAA0512A58249900F75E6D /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				7A0D108B2A57EF0A000D3BA4 /* LoginViewController.swift */,
+				7A0D108D2A57EF0A000D3BA4 /* Main.storyboard */,
+			);
+			path = LoginPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0D10942A57EF0C000D3BA4 /* LaunchScreen.storyboard in Resources */,
-				7AAAA0472A5821DA00F75E6D /* GoogleService-Info (3).plist in Resources */,
+				7AAAA0472A5821DA00F75E6D /* GoogleService-Info.plist in Resources */,
 				7A0D10912A57EF0C000D3BA4 /* Assets.xcassets in Resources */,
 				7A0D108F2A57EF0A000D3BA4 /* Main.storyboard in Resources */,
 			);
@@ -153,7 +199,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0D108C2A57EF0A000D3BA4 /* ViewController.swift in Sources */,
+				7AAAA0552A58300800F75E6D /* LoginModel.swift in Sources */,
+				7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */,
+				7A0D108C2A57EF0A000D3BA4 /* LoginViewController.swift in Sources */,
 				7A0D10882A57EF0A000D3BA4 /* AppDelegate.swift in Sources */,
 				7A0D108A2A57EF0A000D3BA4 /* SceneDelegate.swift in Sources */,
 			);
