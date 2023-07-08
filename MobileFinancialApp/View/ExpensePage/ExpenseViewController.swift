@@ -17,7 +17,7 @@ protocol ExpenseViewControllerDelegate: AnyObject {
 
 
 class ExpenseViewController: UIViewController {
-
+    
     @IBOutlet weak var amountText: UITextField!
     @IBOutlet weak var remarkText: UITextField!
     @IBOutlet weak var selectionSC: UISegmentedControl!
@@ -38,46 +38,49 @@ class ExpenseViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         
         guard let amountString = amountText.text, !amountString.isEmpty,
-                      let amount = Double(amountString) else {
-                    print("Invalid amount")
-                    return
-                }
+              let amount = Double(amountString) else {
+            print("Invalid amount")
+            return
+        }
+        
+        let remark = remarkText.text ?? ""
+        
+        if selectionSC.selectedSegmentIndex == 0 {
+            // Gelir
+            viewModel.addIncome(amount: amount)
+        } else {
+            // Gider
+            viewModel.addExpense(amount: amount)
+        }
+        
+        UserDefaults.standard.set(amountText.text, forKey: "amountText")
+        UserDefaults.standard.set(remarkText.text, forKey: "remarkText")
+        
+        // Değişiklikleri kaydetmek için Firebase Realtime Database'e gönderin
+        viewModel.saveChanges { [weak self] success in
+            if success {
+                // Değişiklikler kaydedildi
+                self?.delegate?.expenseViewControllerDidSaveChanges()
                 
-                let remark = remarkText.text ?? ""
+                // Gerekli temizlik işlemleri
+                self?.amountText.text = ""
+                self?.remarkText.text = ""
                 
-                if selectionSC.selectedSegmentIndex == 0 {
-                    // Gelir
-                    viewModel.addIncome(amount: amount)
-                } else {
-                    // Gider
-                    viewModel.addExpense(amount: amount)
-                }
+                // Kullanıcı HomeViewController'a dönsün
+                self?.navigationController?.popViewController(animated: true)
                 
-                // Değişiklikleri kaydetmek için Firebase Realtime Database'e gönderin
-                viewModel.saveChanges { [weak self] success in
-                    if success {
-                        // Değişiklikler kaydedildi
-                        self?.delegate?.expenseViewControllerDidSaveChanges()
-                        
-                        // Gerekli temizlik işlemleri
-                        self?.amountText.text = ""
-                        self?.remarkText.text = ""
-                        
-                        // Kullanıcı HomeViewController'a dönsün
-                        self?.navigationController?.popViewController(animated: true)
-                        
-                        // Total bütçeyi güncellemek için HomeViewModel'dan fetchTotalBudget() fonksiyonunu çağırın
-                        self?.homeViewModel.fetchTotalBudget { totalBudget in
-                            DispatchQueue.main.async {
-                                self?.delegate?.updateTotalBudget(totalBudget)
-                                print(totalBudget)
-                            }
-                        }
-                    } else {
-                        print("Failed to save changes")
+                // Total bütçeyi güncellemek için HomeViewModel'dan fetchTotalBudget() fonksiyonunu çağırın
+                self?.homeViewModel.fetchTotalBudget { totalBudget in
+                    DispatchQueue.main.async {
+                        self?.delegate?.updateTotalBudget(totalBudget)
+                        print(totalBudget)
                     }
                 }
+            } else {
+                print("Failed to save changes")
             }
+        }
+    }
 }
     
 
