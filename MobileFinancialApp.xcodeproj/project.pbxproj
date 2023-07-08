@@ -29,6 +29,9 @@
 		7AAAA0752A58A3B400F75E6D /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0742A58A3B400F75E6D /* CurrencyModel.swift */; };
 		7AAAA0772A58A42900F75E6D /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0762A58A42900F75E6D /* CurrencyService.swift */; };
 		7AAAA0792A58A6BB00F75E6D /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0782A58A6BB00F75E6D /* CurrencyTableViewCell.swift */; };
+		7AAAA07C2A58C6E900F75E6D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07B2A58C6E900F75E6D /* FirebaseStorage */; };
+		7AAAA07E2A58C7C000F75E6D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07D2A58C7C000F75E6D /* FirebaseFirestore */; };
+		7AAAA0802A58C97000F75E6D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07F2A58C97000F75E6D /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +64,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AAAA0712A5887D200F75E6D /* Alamofire in Frameworks */,
+				7AAAA07C2A58C6E900F75E6D /* FirebaseStorage in Frameworks */,
+				7AAAA0802A58C97000F75E6D /* FirebaseAnalytics in Frameworks */,
 				7AAAA04C2A58221400F75E6D /* FirebaseDatabase in Frameworks */,
+				7AAAA07E2A58C7C000F75E6D /* FirebaseFirestore in Frameworks */,
 				7AAAA04A2A58221400F75E6D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +80,7 @@
 			children = (
 				7A0D10862A57EF0A000D3BA4 /* MobileFinancialApp */,
 				7A0D10852A57EF0A000D3BA4 /* Products */,
+				7AAAA07A2A58C6E900F75E6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +183,13 @@
 			path = CurrencyPage;
 			sourceTree = "<group>";
 		};
+		7AAAA07A2A58C6E900F75E6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +210,9 @@
 				7AAAA0492A58221400F75E6D /* FirebaseAuth */,
 				7AAAA04B2A58221400F75E6D /* FirebaseDatabase */,
 				7AAAA0702A5887D200F75E6D /* Alamofire */,
+				7AAAA07B2A58C6E900F75E6D /* FirebaseStorage */,
+				7AAAA07D2A58C7C000F75E6D /* FirebaseFirestore */,
+				7AAAA07F2A58C97000F75E6D /* FirebaseAnalytics */,
 			);
 			productName = MobileFinancialApp;
 			productReference = 7A0D10842A57EF0A000D3BA4 /* MobileFinancialApp.app */;
@@ -524,6 +541,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7AAAA06F2A5887D200F75E6D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		7AAAA07B2A58C6E900F75E6D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AAAA0482A58221400F75E6D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		7AAAA07D2A58C7C000F75E6D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AAAA0482A58221400F75E6D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7AAAA07F2A58C97000F75E6D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7AAAA0482A58221400F75E6D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

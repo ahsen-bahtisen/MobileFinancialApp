@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
+
+class HomeViewModel {
+    
+   
+}
+
+
+

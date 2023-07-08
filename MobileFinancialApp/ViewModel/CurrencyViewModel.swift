@@ -28,7 +28,6 @@ class CurrencyViewModel {
         currencyService.apiRequest(url: urlString) { [weak self] currencies in
             self?.currencies = currencies
             completion()
-            print(currencies)
         }
     }
 }
