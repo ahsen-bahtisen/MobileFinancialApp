@@ -7,15 +7,13 @@
 
 import Foundation
 
-
-import Foundation
-
 class CurrencyViewModel {
     var currencyService: CurrencyService
     var baseCurrency: String
     var amount: String
     
     var currencies: CurrencyModel?
+    var isMock = true
     
     init() {
         self.currencyService = CurrencyService()
@@ -30,4 +28,14 @@ class CurrencyViewModel {
             completion()
         }
     }
-}
+    
+    
+    func fetchDataMock(completion: @escaping () -> Void) {
+        let urlString = "https://api.exchangerate.host/latest?base=\(baseCurrency)&amount=\(amount)"
+        currencyService.apiRequest(url: urlString) { [weak self] currencies in
+            self?.currencies = currencies
+            completion()
+        }
+        
+
+    }}

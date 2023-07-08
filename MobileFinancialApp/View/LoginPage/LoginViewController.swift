@@ -9,14 +9,17 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
+    //MARK: Properties
     private var viewModel: LoginViewModel!
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel()
@@ -28,6 +31,7 @@ class LoginViewController: UIViewController {
         resetEmailTextIfNeeded()
     }
     
+    //MARK: Methods
     func navigateToHomePage() {
         performSegue(withIdentifier: "toHome", sender: self)
         passwordText.text = nil
@@ -35,46 +39,40 @@ class LoginViewController: UIViewController {
     }
     
     private func loadRememberMeState() {
-            let rememberMe = UserDefaults.standard.bool(forKey: "RememberMe")
-            rememberMeSwitch.isOn = rememberMe
-            
-            if rememberMe {
-                if let savedEmail = UserDefaults.standard.string(forKey: "SavedEmail") {
-                    emailText.text = savedEmail
-                }
-                if let savedPassword = UserDefaults.standard.string(forKey: "SavedPassword") {
-                    passwordText.text = savedPassword
-                }
+        let rememberMe = UserDefaults.standard.bool(forKey: "RememberMe")
+        rememberMeSwitch.isOn = rememberMe
+        
+        if rememberMe {
+            if let savedEmail = UserDefaults.standard.string(forKey: "SavedEmail") {
+                emailText.text = savedEmail
             }
         }
+    }
     
     private func resetEmailTextIfNeeded() {
-           guard !rememberMeSwitch.isOn else {
-               return
-           }
-        emailText.text = nil
-                UserDefaults.standard.removeObject(forKey: "SavedEmail")
-            }
-
-    /*func redirectToHomepage() {
-        // Kullanıcının bütçe ve gelir-gider bilgilerini Firebase Realtime Database'den alın.
-        let userId = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference().child("users").child(userId!)
-        
-        ref.observeSingleEvent(of: .value) { (snapshot) in
-            if let userData = snapshot.value as? [String: Any] {
-                let totalBudget = userData["totalBudget"] as? Double
-                let income = userData["income"] as? Double
-                let expenses = userData["expenses"] as? Double
-                
-                // Homepage sayfasında bütçe ve gelir-gider bilgilerini kullanın.
-                // Örneğin, bir View Controller'a geçiş yapabilir ve bu verileri aktarabilirsiniz.
-            }
+        guard !rememberMeSwitch.isOn else {
+            return
         }
-    }*/
+        emailText.text = nil
+        UserDefaults.standard.removeObject(forKey: "SavedEmail")
+    }
+    
+    private func rememberUserCredentials() {
+        if rememberMeSwitch.isOn {
+            UserDefaults.standard.set(true, forKey: "RememberMe")
+            UserDefaults.standard.set(emailText.text, forKey: "SavedEmail")
+            UserDefaults.standard.set(passwordText.text, forKey: "SavedPassword")
+        } else {
+            UserDefaults.standard.set(false, forKey: "RememberMe")
+            UserDefaults.standard.removeObject(forKey: "SavedEmail")
+            UserDefaults.standard.removeObject(forKey: "SavedPassword")
+        }
+    }
+    
+    //MARK: Actions
     @IBAction func loginButton(_ sender: Any) {
         
-       
+        
         guard let email = emailText.text, !email.isEmpty,
               let password = passwordText.text, !password.isEmpty else {
             print("Missing field data")
@@ -94,25 +92,17 @@ class LoginViewController: UIViewController {
             } else {
                 
                 print("You have signed in")
+                // Kullanıcı oturum açmış, ana ekrana yönlendir
                 strongSelf.navigateToHomePage()
                 strongSelf.rememberUserCredentials()
+                
+                
                 
             }
         }
     }
     
-    private func rememberUserCredentials() {
-        if rememberMeSwitch.isOn {
-            UserDefaults.standard.set(true, forKey: "RememberMe")
-            UserDefaults.standard.set(emailText.text, forKey: "SavedEmail")
-            UserDefaults.standard.set(passwordText.text, forKey: "SavedPassword")
-        } else {
-            UserDefaults.standard.set(false, forKey: "RememberMe")
-            UserDefaults.standard.removeObject(forKey: "SavedEmail")
-            UserDefaults.standard.removeObject(forKey: "SavedPassword")
-        }
-    }
-   
+
     @IBAction func forgetMeButton(_ sender: Any) {
         rememberMeSwitch.isOn = false
         rememberUserCredentials()
@@ -141,5 +131,5 @@ class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
-
+    
 }
