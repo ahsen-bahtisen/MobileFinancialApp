@@ -9,14 +9,17 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
+    //MARK: Properties
     private var viewModel: LoginViewModel!
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel()
@@ -28,6 +31,7 @@ class LoginViewController: UIViewController {
         resetEmailTextIfNeeded()
     }
     
+    //MARK: Methods
     func navigateToHomePage() {
         performSegue(withIdentifier: "toHome", sender: self)
         passwordText.text = nil
@@ -53,6 +57,19 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "SavedEmail")
     }
     
+    private func rememberUserCredentials() {
+        if rememberMeSwitch.isOn {
+            UserDefaults.standard.set(true, forKey: "RememberMe")
+            UserDefaults.standard.set(emailText.text, forKey: "SavedEmail")
+            UserDefaults.standard.set(passwordText.text, forKey: "SavedPassword")
+        } else {
+            UserDefaults.standard.set(false, forKey: "RememberMe")
+            UserDefaults.standard.removeObject(forKey: "SavedEmail")
+            UserDefaults.standard.removeObject(forKey: "SavedPassword")
+        }
+    }
+    
+    //MARK: Actions
     @IBAction func loginButton(_ sender: Any) {
         
         
@@ -85,18 +102,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func rememberUserCredentials() {
-        if rememberMeSwitch.isOn {
-            UserDefaults.standard.set(true, forKey: "RememberMe")
-            UserDefaults.standard.set(emailText.text, forKey: "SavedEmail")
-            UserDefaults.standard.set(passwordText.text, forKey: "SavedPassword")
-        } else {
-            UserDefaults.standard.set(false, forKey: "RememberMe")
-            UserDefaults.standard.removeObject(forKey: "SavedEmail")
-            UserDefaults.standard.removeObject(forKey: "SavedPassword")
-        }
-    }
-    
+
     @IBAction func forgetMeButton(_ sender: Any) {
         rememberMeSwitch.isOn = false
         rememberUserCredentials()

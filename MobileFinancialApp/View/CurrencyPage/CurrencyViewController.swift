@@ -7,15 +7,18 @@
 
 import UIKit
 
-class CurrencyViewController: UIViewController {
+final class CurrencyViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var baseTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    //MARK: Properties
     private var viewModel: CurrencyViewModel!
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CurrencyViewModel()
@@ -24,10 +27,7 @@ class CurrencyViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    @IBAction func convertButtonTapped(_ sender: UIButton) {
-        fetchDataAndUpdateUI()
-    }
-    
+    //MARK: Methods
     private func fetchDataAndUpdateUI() {
         viewModel.baseCurrency = baseTextField.text ?? "USD"
         viewModel.amount = amountTextField.text ?? "1"
@@ -39,13 +39,20 @@ class CurrencyViewController: UIViewController {
         }
     }
     
+    @IBAction func convertButtonTapped(_ sender: UIButton) {
+        fetchDataAndUpdateUI()
+    }
+    
+
+    
+    //MARK: Actions
     @IBAction func convertButton(_ sender: Any) {
         fetchDataAndUpdateUI()
         
     }
 }
 
-
+    //MARK: Extensions
 extension CurrencyViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

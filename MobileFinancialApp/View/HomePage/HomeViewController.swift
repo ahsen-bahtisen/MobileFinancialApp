@@ -8,18 +8,23 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, ExpenseViewControllerDelegate {
+
+final class HomeViewController: UIViewController, ExpenseViewControllerDelegate {
  
-    
+    //MARK: Outlets
     @IBOutlet weak var expensesTableView: UITableView!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
+    
+    //MARK: Properties
     var ref: DatabaseReference?
     private var viewModel: HomeViewModel!
     
     var expenses: [String] = []
     var amounts: [String] = []
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         expensesTableView.dataSource = self
@@ -27,8 +32,7 @@ class HomeViewController: UIViewController, ExpenseViewControllerDelegate {
         cardView.layer.cornerRadius = 12
         ref = Database.database().reference()
         viewModel = HomeViewModel()
- 
-        
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +54,8 @@ class HomeViewController: UIViewController, ExpenseViewControllerDelegate {
         expensesTableView.reloadData()
     }
     
+    
+    //MARK: Methods
     func expenseViewControllerDidSaveChanges() {
         fetchTotalBudget()
     }
@@ -72,7 +78,7 @@ class HomeViewController: UIViewController, ExpenseViewControllerDelegate {
 }
 
 
-
+    //MARK: Extensions
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

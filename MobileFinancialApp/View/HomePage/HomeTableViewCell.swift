@@ -9,12 +9,11 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
     
-    
-    
+    //MARK: Outlets
     @IBOutlet weak var expenseLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
-    
+    //MARK: Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

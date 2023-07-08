@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-
+//MARK: Protocol
 protocol ExpenseViewControllerDelegate: AnyObject {
     func expenseViewControllerDidSaveChanges()
     func updateTotalBudget(_ totalBudget: Double)
@@ -16,25 +16,30 @@ protocol ExpenseViewControllerDelegate: AnyObject {
 
 
 
-class ExpenseViewController: UIViewController {
+final class ExpenseViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak var amountText: UITextField!
     @IBOutlet weak var remarkText: UITextField!
     @IBOutlet weak var selectionSC: UISegmentedControl!
     
+    //MARK: Properties
     weak var delegate: ExpenseViewControllerDelegate?
     private var viewModel: ExpenseViewModel!
     private var homeViewModel: HomeViewModel!
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = ExpenseViewModel()
         homeViewModel = HomeViewModel()
+        
     }
     
     
-    
+    //MARK: Actions
     @IBAction func saveButton(_ sender: Any) {
         
         guard let amountString = amountText.text, !amountString.isEmpty,
@@ -66,7 +71,7 @@ class ExpenseViewController: UIViewController {
                 self?.amountText.text = ""
                 self?.remarkText.text = ""
                 
-                // Kullanıcı HomeViewController'a dönsün
+                
                 self?.navigationController?.popViewController(animated: true)
                 
                 // Total bütçeyi güncellemek için HomeViewModel'dan fetchTotalBudget() fonksiyonunu çağırın
