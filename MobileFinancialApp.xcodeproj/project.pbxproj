@@ -32,6 +32,8 @@
 		7AAAA07C2A58C6E900F75E6D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07B2A58C6E900F75E6D /* FirebaseStorage */; };
 		7AAAA07E2A58C7C000F75E6D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07D2A58C7C000F75E6D /* FirebaseFirestore */; };
 		7AAAA0802A58C97000F75E6D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7AAAA07F2A58C97000F75E6D /* FirebaseAnalytics */; };
+		7AAAA0842A595E4B00F75E6D /* FakeJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AAAA0832A595E4B00F75E6D /* FakeJSON.json */; };
+		7AAAA0862A595F8B00F75E6D /* MockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA0852A595F8B00F75E6D /* MockModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		7AAAA0742A58A3B400F75E6D /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		7AAAA0762A58A42900F75E6D /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		7AAAA0782A58A6BB00F75E6D /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
+		7AAAA0832A595E4B00F75E6D /* FakeJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeJSON.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		7AAAA0852A595F8B00F75E6D /* MockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				7A0D10922A57EF0C000D3BA4 /* LaunchScreen.storyboard */,
 				7A0D10952A57EF0C000D3BA4 /* Info.plist */,
 				7AAAA0462A5821D900F75E6D /* GoogleService-Info.plist */,
+				7AAAA0832A595E4B00F75E6D /* FakeJSON.json */,
 			);
 			path = MobileFinancialApp;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			children = (
 				7AAAA0542A58300800F75E6D /* LoginModel.swift */,
 				7AAAA0742A58A3B400F75E6D /* CurrencyModel.swift */,
+				7AAAA0852A595F8B00F75E6D /* MockModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				7AAAA0472A5821DA00F75E6D /* GoogleService-Info.plist in Resources */,
 				7A0D10912A57EF0C000D3BA4 /* Assets.xcassets in Resources */,
 				7A0D108F2A57EF0A000D3BA4 /* Main.storyboard in Resources */,
+				7AAAA0842A595E4B00F75E6D /* FakeJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +286,7 @@
 				7AAAA06E2A58867A00F75E6D /* CurrencyViewController.swift in Sources */,
 				7AAAA06B2A58864F00F75E6D /* CurrencyViewModel.swift in Sources */,
 				7AAAA0792A58A6BB00F75E6D /* CurrencyTableViewCell.swift in Sources */,
+				7AAAA0862A595F8B00F75E6D /* MockModel.swift in Sources */,
 				7AAAA0772A58A42900F75E6D /* CurrencyService.swift in Sources */,
 				7AAAA0662A586EE800F75E6D /* ExpenseViewModel.swift in Sources */,
 				7AAAA0532A582FDD00F75E6D /* LoginViewModel.swift in Sources */,

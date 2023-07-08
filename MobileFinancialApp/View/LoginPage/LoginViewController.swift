@@ -35,46 +35,27 @@ class LoginViewController: UIViewController {
     }
     
     private func loadRememberMeState() {
-            let rememberMe = UserDefaults.standard.bool(forKey: "RememberMe")
-            rememberMeSwitch.isOn = rememberMe
-            
-            if rememberMe {
-                if let savedEmail = UserDefaults.standard.string(forKey: "SavedEmail") {
-                    emailText.text = savedEmail
-                }
-                if let savedPassword = UserDefaults.standard.string(forKey: "SavedPassword") {
-                    passwordText.text = savedPassword
-                }
+        let rememberMe = UserDefaults.standard.bool(forKey: "RememberMe")
+        rememberMeSwitch.isOn = rememberMe
+        
+        if rememberMe {
+            if let savedEmail = UserDefaults.standard.string(forKey: "SavedEmail") {
+                emailText.text = savedEmail
             }
         }
+    }
     
     private func resetEmailTextIfNeeded() {
-           guard !rememberMeSwitch.isOn else {
-               return
-           }
-        emailText.text = nil
-                UserDefaults.standard.removeObject(forKey: "SavedEmail")
-            }
-
-    /*func redirectToHomepage() {
-        // Kullanıcının bütçe ve gelir-gider bilgilerini Firebase Realtime Database'den alın.
-        let userId = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference().child("users").child(userId!)
-        
-        ref.observeSingleEvent(of: .value) { (snapshot) in
-            if let userData = snapshot.value as? [String: Any] {
-                let totalBudget = userData["totalBudget"] as? Double
-                let income = userData["income"] as? Double
-                let expenses = userData["expenses"] as? Double
-                
-                // Homepage sayfasında bütçe ve gelir-gider bilgilerini kullanın.
-                // Örneğin, bir View Controller'a geçiş yapabilir ve bu verileri aktarabilirsiniz.
-            }
+        guard !rememberMeSwitch.isOn else {
+            return
         }
-    }*/
+        emailText.text = nil
+        UserDefaults.standard.removeObject(forKey: "SavedEmail")
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
         
-       
+        
         guard let email = emailText.text, !email.isEmpty,
               let password = passwordText.text, !password.isEmpty else {
             print("Missing field data")
@@ -94,8 +75,11 @@ class LoginViewController: UIViewController {
             } else {
                 
                 print("You have signed in")
+                // Kullanıcı oturum açmış, ana ekrana yönlendir
                 strongSelf.navigateToHomePage()
                 strongSelf.rememberUserCredentials()
+                
+                
                 
             }
         }
@@ -112,7 +96,7 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.removeObject(forKey: "SavedPassword")
         }
     }
-   
+    
     @IBAction func forgetMeButton(_ sender: Any) {
         rememberMeSwitch.isOn = false
         rememberUserCredentials()
@@ -141,5 +125,5 @@ class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
-
+    
 }

@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-import Foundation
-
 class CurrencyViewModel {
     var currencyService: CurrencyService
     var baseCurrency: String
